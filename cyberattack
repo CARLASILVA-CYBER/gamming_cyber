@@ -1,0 +1,49 @@
+import random
+
+# Dicionário de perguntas e respostas
+questions = {
+    "O que é uma botnet?": "Uma rede de dispositivos comprometidos controlados remotamente por um invasor.",
+    "Como os dispositivos são recrutados para uma botnet?": "Através de infecções por malware, como trojans e worms, que permitem que o invasor assuma o controle dos dispositivos.",
+    "Quais são alguns dos usos maliciosos de uma botnet?": "Spam, ataques de negação de serviço (DDoS), roubo de informações, mineração de criptomoedas, entre outros.",
+    "O que é um botmaster?": "O indivíduo ou grupo que controla e coordena as atividades de uma botnet.",
+    "Como as botnets podem ser mitigadas?": "Usando firewalls, antivírus, detecção de intrusões e mantendo sistemas e software atualizados.",
+    "O que é um ataque de negação de serviço (DDoS)?": "Um tipo de ataque cibernético que sobrecarrega um servidor ou rede com um grande volume de tráfego malicioso, tornando-o inacessível para usuários legítimos.",
+    "O que é um bot?": "Um dispositivo comprometido que faz parte de uma botnet e é controlado remotamente pelo botmaster.",
+    "Como os bots se comunicam com o botmaster?": "Usando protocolos de comunicação, como IRC (Internet Relay Chat) ou HTTP (Hypertext Transfer Protocol), para se conectar aos servidores de comando e controle (C&C).",
+    "O que é um ataque de phishing?": "Uma técnica de engenharia social usada para induzir os usuários a divulgar informações confidenciais, como senhas e informações de cartão de crédito.",
+    "O que é um ransomware?": "Um tipo de malware que criptografa os arquivos de um computador e exige um pagamento para restaurá-los.",
+    "O que é engenharia social?": "Uma técnica usada para manipular indivíduos a fim de obter informações confidenciais ou realizar ações específicas.",
+}
+
+# Função para selecionar uma pergunta aleatória
+def select_question():
+    question = random.choice(list(questions.keys()))
+    return question, questions[question]
+
+# Função principal do jogo
+def main():
+    print("Bem-vindo ao Jogo de Perguntas sobre Botnets!")
+    print("Teste seus conhecimentos sobre botnets e cibersegurança.\n")
+
+    # Variável para rastrear o número de respostas corretas
+    score = 0
+
+    # Loop para executar o jogo
+    for _ in range(5):  # Defina o número de rodadas do jogo aqui
+        question, answer = select_question()
+        print("Pergunta:", question)
+        user_answer = input("Sua resposta: ").strip().lower()
+
+        # Verificação da resposta do usuário
+        if user_answer == answer.lower():
+            print("Resposta correta!\n")
+            score += 1
+        else:
+            print("Resposta incorreta. A resposta correta é:", answer, "\n")
+
+    # Exibição da pontuação final
+    print("Pontuação final:", score, "de", 5)  # Total de perguntas
+
+# Executar o jogo
+if __name__ == "__main__":
+    main()
